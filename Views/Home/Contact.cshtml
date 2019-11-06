@@ -1,0 +1,121 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<section class="slating">
+    <div class="centereddh_text"><h2 class="">Contact</h2></div>
+    <img src="../images/Inner-banner.jpg" class="img-fluid" alt="Responsive image" style="width:100%;">
+</section>
+
+
+
+<section id="contact" class="wow fadeInUp">
+    <div class="container">
+        <div class="row contact-info">
+
+            <div class="col-md-4">
+
+                <div class="title_box pb-4"><h1>Contact</h1></div>
+
+
+
+
+                <div class="contact-address mt-4">
+
+                    <address>
+                        <h3 class="contact_heading">Office Address:</h3>
+                        702-B, Manmandir Apartment, <br>
+                        Indra Narayan Road, Santacruz West, <br>
+                        Mumbai –  400054, India.
+                    </address>
+                </div>
+
+                <div class="contact-phone">
+                    <h3>Phone Number</h3>
+                    <p><a href="tel:+912226482645">  +91 22 2648 2645 / 26 46 / 26 62</a></p>
+                </div>
+
+                <div class="contact-email">
+                    <h3>Fax</h3>
+                    <p><a href="mailto: +912226482647">  +91 22 2648 26 47</a></p>
+
+                </div>
+
+
+                <div class="contact-email">
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@starmatrixltd.com">info@starmatrixltd.com</a></p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-8 mt-4">
+
+                <h3 class="contact_heading">Feedback Form:</h3><br>
+
+                <div class="form ">
+
+
+                    @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12 ">
+                                <input type="text" name="Name" class="form-control" id="Name" placeholder="Your Name" required data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                               
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="email" class="form-control" name="Email" id="Email" placeholder="Your Email" required data-rule="email" data-msg="Please enter a valid email" />
+                                <div class="validation"></div>
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validation"></div>
+                            </div>*@
+
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="Mobile" id="Mobile" placeholder="Mobile" required data-rule="minlen:10" data-msg="Please enter a valid mobile no." />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="Message" rows="5" data-rule="required" required data-msg="Please write something for us" placeholder="Message"></textarea>
+                            <div class="validation"></div>
+                        </div>
+                        <div class="text-left"><button type="submit">Send Message</button></div>
+                        <div>
+                            <p>
+                                <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+                                <span style="color:red">@Html.Raw(ViewBag.ErrMessage)</span>
+                            </p>
+                        </div>
+
+                    }
+
+
+                </div>
+                <br>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+</section>
+
+
+
+<div class="">
+    <div class="map-responsive">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.6178427880986!2d72.83284751533597!3d19.08053280678726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9a98d782969%3A0x6ee9a428fcb265d3!2sStar%20Matrix%20Ltd!5e0!3m2!1sen!2sin!4v1572673011272!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+    </div>
+</div>
+

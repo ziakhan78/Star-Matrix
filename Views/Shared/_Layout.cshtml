@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Star Matrix</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="~/img/favicon-32x32.png" rel="icon">
+   
+
+    <!-- Bootstrap CSS File -->
+    @*<link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+        <link href="~/css/global.css" rel="stylesheet" />
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="~/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+        <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="~/css/style.css" rel="stylesheet">*@
+
+    <environment include="Development">
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.css" />*@
+        <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+        <link href="~/css/global.css" rel="stylesheet" />
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="~/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+        <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="~/css/style.css" rel="stylesheet">
+    </environment>
+    <environment exclude="Development">
+        @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />*@
+
+        @*<link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+        <link href="~/css/global.css" rel="stylesheet" />
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="~/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+        <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="~/css/style.css" rel="stylesheet">*@
+    </environment>
+</head>
+<body>
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">StarMatrix</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
+
+    <div class="top_bar"></div>
+
+
+
+    <header>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"><div class="logo"><a asp-area="" asp-controller="Home" asp-action="Index"><img class="img-fluid" src="../images/logo.jpg" alt="logo" /></a></div></div>
+
+                <div class="col-md-8">
+                    <div class="contact-bnr-w3-agile">
+                        <ul>
+                            <li>Call: 10:00am - 6:00pm<br><h5> +91 22 26482645</h5></li>
+
+                            <li>Email: <br><a href="mailto:info@starmatrixltd.com"><h5> info@starmatrixltd.com</h5></a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="container" id="header">
+            <nav id="nav-menu-container">
+                <ul class="nav-menu pt-2">
+                    <li class="menu-active"><a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-home" style="font-size:24px;"></i></a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Recycling" class="">Recycling</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Towage">Towage</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Download">Download</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Location">Location</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+
+            <div class="header_side">
+                <h5 class="text-white pt-2 text-center">Get a Quote</h5>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- #header -->
+
+
+
+
+    @RenderBody()
+
+
+    <!--==========================
+      Footer
+    ============================-->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-3 footer-info">
+                        <h3>About Star Matrix</h3>
+                        <p>The Revolutionaries who crafted this extraordinary enterprise and set it rolling with a Boomerang effect are; Mr. Sanjeev Jain, The proprietor, who is a very well renowned figure around the world, with a current experience of 30 yrs in the industry and Mr. Siddhant Jain,who studied... Read More </p>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="ion-ios-arrow-right"></i> <a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a asp-area="" asp-controller="Home" asp-action="Recycling">Recycling</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a asp-area="" asp-controller="Home" asp-action="Towage">Towage</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a asp-area="" asp-controller="Home" asp-action="Location">Location</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+
+                        </ul>
+                    </div>
+
+
+                    <div class="col-lg-2 col-md-2 footer-links">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><i class="ion-ios-arrow-right"></i> <a asp-area="" asp-controller="Home" asp-action="Demolition">Demolition</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a asp-area="" asp-controller="Home" asp-action="Towage">Towage</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a asp-area="" asp-controller="Home" asp-action="Mitigation-of-Risks">Mitigation of Risks</a></li>
+
+
+                        </ul>
+                    </div>
+
+
+
+                    <div class="col-lg-2 col-md-2 footer-links">
+                        <h4>Location</h4>
+                        <ul>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#">India</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Pakistan</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Bangladesh</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#">China</a></li>
+                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Turkey</a></li>
+                        </ul>
+                    </div>
+
+
+
+                    <div class="col-lg-3 col-md-3 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            702-B, Manmandir Apartment, <br>
+                            Indra Narayan Road, Santacruz West, <br>
+                            Mumbai –  400054, India.
+                            <br>
+
+                            <strong>Ph:</strong> +91 22 2648 2645 / 26 46 / 26 62<br>
+                            <strong>Email:</strong>  info@starmatrixltd.com<br>
+                        </p>
+
+                        <div class="social-links">
+                            <a href="#" class=""><i class="fa fa-envelope"></i></a>
+                            <a href="#" class=""><i class="fa fa-sitemap"></i></a>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class=" container">
+            <div class="row">
+
+                <div class="col-md-6 copyright pt-2 pb-2">Copyright © 2019 Star Matrix | All Rights Reserved</div>
+                <div class="col-md-6 credits pt-2  pb-2">Site Designed & Maintained By Goradia Infotech</div>
+            </div>
+
+        </div>
+
+
+
+    </footer>
+    <!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/superfish/hoverIntent.js"></script>
+    <script src="~/lib/superfish/superfish.min.js"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/lib/counterup/counterup.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="~/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="~/js/contactform.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="~/js/main.js"></script>
+
+
+    @*<environment include="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>*@
+
+    @RenderSection("Scripts", required: false)
+    @*<partial name="_CookieConsentPartial" />*@
+</body>
+</html>
