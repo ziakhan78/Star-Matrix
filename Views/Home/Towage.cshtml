@@ -4,7 +4,7 @@
 }
 
 <section class="slating">
-    <div class="centereddh_text"><h2 class="">Towage</h2></div>
+   
     <img src="~/images/Inner-banner.jpg" class="img-fluid" alt="Responsive image" style="width:100%;">
 </section>
 
@@ -13,82 +13,91 @@
     <div class="container pb-3">
         <div class="row">
 
+            <div class="col-lg-12">
+                <div class="sitemap_box">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Towage</li>
+                    </ol>
+                </div>
+            </div>
+
             <div class="col-md-12 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="title_box pb-4"><h1>Towage</h1></div>
 
                 <br>
 
-               <table class="table table-bordered table-hover small">
+                <table class="table table-bordered table-hover small">
 
-               
-                <thead class="bg-light">
-                    <tr>
-                        <th>Sr.</th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Tugs.TugName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.BollardPulls.BollardPullName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.EngineHPs.EngineHPName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ClassTypes.ClassTypeName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.PresentLocation)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Availability)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.AvailableLocation)
-                        </th>
 
-                      
-                    </tr>
-                </thead>
-                <tbody>
-                    @{ int rowno = 0;}
-                    @foreach (var item in Model)
-                    {
+                    <thead class="bg-light">
                         <tr>
-                            <td>
-                                @(rowno += 1)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Tugs.TugName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BollardPulls.BollardPullName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EngineHPs.EngineHPName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ClassTypes.ClassTypeName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PresentLocation)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Availability)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.AvailableLocation)
-                            </td>
+                            <th>Sr.</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Tugs.TugName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Tugs.BollardPullName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Tugs.EngineHPName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Tugs.ClassTypeName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PresentLocation)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Availability)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AvailableLocation)
+                            </th>
 
-                           
+
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @{ int rowno = 0;}
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(rowno += 1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tugs.TugName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tugs.BollardPullName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tugs.EngineHPName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tugs.ClassTypeName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PresentLocation)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Availability)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AvailableLocation)
+                                </td>
 
-        </div>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
 
 
-        @*<div class="col-md-3 wow fadeInUp" data-wow-delay="0.3s">
+            @*<div class="col-md-3 wow fadeInUp" data-wow-delay="0.3s">
             <div class="list-group ">
                 <a href="#" class="list-group-item list-group-item-success mt-2"><h6 class=" text-white">Company Presentation</h6></a>
                 <a href="#" class="list-group-item list-group-item-success mt-2"><h6 class=" text-white">Download Brochure</h6></a>
@@ -96,7 +105,7 @@
         </div>*@
 
 
-            </div>
+        </div>
 
 
 

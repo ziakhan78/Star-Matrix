@@ -44,7 +44,7 @@ namespace StarMatrix.Controllers
         [Route("Towage")]
         public async Task<IActionResult> Towage()
         {
-            var starMatrixContext = _context.ShipLocation.Include(s => s.BollardPulls).Include(s => s.ClassTypes).Include(s => s.EngineHPs).Include(s => s.Tugs);
+            var starMatrixContext = _context.ShipLocation.Include(s => s.Tugs);
             return View(await starMatrixContext.ToListAsync());
         }
 

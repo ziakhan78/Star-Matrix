@@ -9,8 +9,7 @@
     <div class="box col-md-12">
         <div class="box-inner">
             <div class="box-header well" data-original-title="">
-                <h2>Admin Users</h2>
-                <div style="float:right;">   <a class="btn btn-success btn-sm" href="@Url.Action("Create", "Admin")"><i class="glyphicon glyphicon-plus-sign"></i> Add New</a></div>
+                <h2>Admin Users</h2>                
             </div>
             <div class="box-content">
 
@@ -42,7 +41,7 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.Ipaddress)
                             </th>*@
-                            <th>Action</th>
+                            <th><a class="btn btn-success btn-sm" href="@Url.Action("Create", "Admin")"><i class="glyphicon glyphicon-plus-sign"></i> Add New</a></th>
                         </tr>
                     </thead>
                     <tbody>

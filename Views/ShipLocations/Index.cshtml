@@ -9,8 +9,7 @@
     <div class="box col-md-12">
         <div class="box-inner">
             <div class="box-header well" data-original-title="">
-                <h2>Ship Locations</h2>
-                <div style="float:right;">   <a class="btn btn-success btn-sm" href="@Url.Action("Create", "ShipLocations")"><i class="glyphicon glyphicon-plus-sign"></i> Add New</a></div>
+                <h2>Ship Locations</h2>                
             </div>
             <div class="box-content">
                 <table class="table">
@@ -21,13 +20,13 @@
                                 @Html.DisplayNameFor(model => model.Tugs)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.BollardPulls)
+                                @Html.DisplayNameFor(model => model.Tugs.BollardPullName)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.EngineHPs)
+                                @Html.DisplayNameFor(model => model.Tugs.EngineHPName)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.ClassTypes)
+                                @Html.DisplayNameFor(model => model.Tugs.ClassTypeName)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.PresentLocation)
@@ -39,7 +38,7 @@
                                 @Html.DisplayNameFor(model => model.AvailableLocation)
                             </th>
 
-                            <th>Action</th>
+                            <th><a class="btn btn-success btn-sm" href="@Url.Action("Create", "ShipLocations")"><i class="glyphicon glyphicon-plus-sign"></i> Add New</a></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,13 +53,13 @@
                                     @Html.DisplayFor(modelItem => item.Tugs.TugName)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.BollardPulls.BollardPullName)
+                                    @Html.DisplayFor(modelItem => item.Tugs.BollardPullName)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.EngineHPs.EngineHPName)
+                                    @Html.DisplayFor(modelItem => item.Tugs.EngineHPName)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.ClassTypes.ClassTypeName)
+                                    @Html.DisplayFor(modelItem => item.Tugs.ClassTypeName)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.PresentLocation)

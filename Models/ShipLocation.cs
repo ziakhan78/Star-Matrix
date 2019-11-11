@@ -22,30 +22,30 @@ namespace StarMatrix.Models
 
 
 
-        [Display(Name = "Bollard Pull")]
-        public int BollardPullId { get; set; }
+        //[Display(Name = "Bollard Pull")]
+        //public int BollardPullId { get; set; }
 
 
-        [ForeignKey("BollardPullId")]
-        public virtual BollardPull BollardPulls { get; set; }
+        //[ForeignKey("BollardPullId")]
+        //public virtual BollardPull BollardPulls { get; set; }
 
 
 
-        [Display(Name = "Engine HP")]
-        public int EngineHpId { get; set; }
+        //[Display(Name = "Engine HP")]
+        //public int EngineHpId { get; set; }
 
 
-        [ForeignKey("EngineHpId")]
-        public virtual EngineHP EngineHPs { get; set; }       
+        //[ForeignKey("EngineHpId")]
+        //public virtual EngineHP EngineHPs { get; set; }       
 
    
 
-        [Display(Name = "Class")]
-        public int ClassTypeId { get; set; }
+        //[Display(Name = "Class")]
+        //public int ClassTypeId { get; set; }
 
 
-        [ForeignKey("ClassTypeId")]
-        public virtual ClassType ClassTypes { get; set; }
+        //[ForeignKey("ClassTypeId")]
+        //public virtual ClassType ClassTypes { get; set; }
 
 
 

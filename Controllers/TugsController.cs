@@ -53,7 +53,7 @@ namespace StarMatrix.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TugId,TugName")] Tug tug)
+        public async Task<IActionResult> Create(Tug tug)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace StarMatrix.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TugId,TugName")] Tug tug)
+        public async Task<IActionResult> Edit(int id, Tug tug)
         {
             if (id != tug.TugId)
             {
@@ -134,8 +134,8 @@ namespace StarMatrix.Controllers
         }
 
         // POST: Tugs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var tug = await _context.Tug.FindAsync(id);

@@ -50,30 +50,29 @@ namespace StarMatrix.Controllers
         [HttpPost]
         public ActionResult Changepassword(Admin login, string NewPassword)
         {
-            using (StarMatrixContext db = new StarMatrixContext())
+
+            var detail = _context.Admin.Where(x => x.Password == login.Password && x.Username == login.Username).FirstOrDefault();
+            //var detail = db.Admins.Where(x => x.Username == login.Username && x.Password == login.Password && x.Status == true).ToList();
+
+            if (detail != null && NewPassword != null)
             {
-                var detail = db.Admin.Where(x => x.Password == login.Password && x.Username == login.Username).FirstOrDefault();
-                //var detail = db.Admins.Where(x => x.Username == login.Username && x.Password == login.Password && x.Status == true).ToList();
+                detail.Password = NewPassword;
 
-                if (detail != null)
-                {
-                    detail.Password = NewPassword;
-
-                    db.SaveChanges();
-                    ViewBag.Message = "Password Updated Successfully!";
-                    ModelState.Clear();
-                    return View("ChangePassword");
-
-                }
-                else
-                {
-                    ViewBag.Status = "Invalid Username or Password";
-                }
-
-
+                _context.SaveChanges();
+                ViewBag.Message = "Password Updated Successfully!";
+                ModelState.Clear();
+                return View("ChangePassword");
+            }
+            else
+            {
+                ViewBag.Status = "Invalid Username or Password";
+               // return View();
             }
 
-            return View(login);
+
+
+
+            return View();
         }
 
         //[HttpPost]

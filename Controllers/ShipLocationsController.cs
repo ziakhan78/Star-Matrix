@@ -21,7 +21,7 @@ namespace StarMatrix.Controllers
         // GET: ShipLocations
         public async Task<IActionResult> Index()
         {
-            var starMatrixContext = _context.ShipLocation.Include(s => s.BollardPulls).Include(s => s.ClassTypes).Include(s => s.EngineHPs).Include(s => s.Tugs);
+            var starMatrixContext = _context.ShipLocation.Include(s => s.Tugs);
             return View(await starMatrixContext.ToListAsync());
         }
 
@@ -33,10 +33,7 @@ namespace StarMatrix.Controllers
                 return NotFound();
             }
 
-            var shipLocation = await _context.ShipLocation
-                .Include(s => s.BollardPulls)
-                .Include(s => s.ClassTypes)
-                .Include(s => s.EngineHPs)
+            var shipLocation = await _context.ShipLocation                
                 .Include(s => s.Tugs)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (shipLocation == null)
@@ -49,10 +46,7 @@ namespace StarMatrix.Controllers
 
         // GET: ShipLocations/Create
         public IActionResult Create()
-        {
-            ViewData["BollardPullId"] = new SelectList(_context.Set<BollardPull>(), "BollardPullId", "BollardPullName");
-            ViewData["ClassTypeId"] = new SelectList(_context.ClassType, "ClassTypeId", "ClassTypeName");
-            ViewData["EngineHpId"] = new SelectList(_context.Set<EngineHP>(), "EngineHPId", "EngineHPName");
+        {          
             ViewData["TugId"] = new SelectList(_context.Tug, "TugId", "TugName");
             return View();
         }
@@ -62,17 +56,14 @@ namespace StarMatrix.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TugId,BollardPullId,EngineHpId,ClassTypeId,PresentLocation,Availability,AvailableLocation,Ipaddress,DateAdded")] ShipLocation shipLocation)
+        public async Task<IActionResult> Create([Bind("Id,TugId,PresentLocation,Availability,AvailableLocation,Ipaddress,DateAdded")] ShipLocation shipLocation)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(shipLocation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["BollardPullId"] = new SelectList(_context.Set<BollardPull>(), "BollardPullId", "BollardPullName", shipLocation.BollardPullId);
-            ViewData["ClassTypeId"] = new SelectList(_context.ClassType, "ClassTypeId", "ClassTypeName", shipLocation.ClassTypeId);
-            ViewData["EngineHpId"] = new SelectList(_context.Set<EngineHP>(), "EngineHPId", "EngineHPName", shipLocation.EngineHpId);
+            }         
             ViewData["TugId"] = new SelectList(_context.Tug, "TugId", "TugName", shipLocation.TugId);
             return View(shipLocation);
         }
@@ -90,9 +81,7 @@ namespace StarMatrix.Controllers
             {
                 return NotFound();
             }
-            ViewData["BollardPullId"] = new SelectList(_context.Set<BollardPull>(), "BollardPullId", "BollardPullName", shipLocation.BollardPullId);
-            ViewData["ClassTypeId"] = new SelectList(_context.ClassType, "ClassTypeId", "ClassTypeName", shipLocation.ClassTypeId);
-            ViewData["EngineHpId"] = new SelectList(_context.Set<EngineHP>(), "EngineHPId", "EngineHPName", shipLocation.EngineHpId);
+          
             ViewData["TugId"] = new SelectList(_context.Tug, "TugId", "TugName", shipLocation.TugId);
             return View(shipLocation);
         }
@@ -102,7 +91,7 @@ namespace StarMatrix.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,TugId,BollardPullId,EngineHpId,ClassTypeId,PresentLocation,Availability,AvailableLocation,Ipaddress,DateAdded")] ShipLocation shipLocation)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,TugId,PresentLocation,Availability,AvailableLocation,Ipaddress,DateAdded")] ShipLocation shipLocation)
         {
             if (id != shipLocation.Id)
             {
@@ -128,10 +117,7 @@ namespace StarMatrix.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["BollardPullId"] = new SelectList(_context.Set<BollardPull>(), "BollardPullId", "BollardPullName", shipLocation.BollardPullId);
-            ViewData["ClassTypeId"] = new SelectList(_context.ClassType, "ClassTypeId", "ClassTypeName", shipLocation.ClassTypeId);
-            ViewData["EngineHpId"] = new SelectList(_context.Set<EngineHP>(), "EngineHPId", "EngineHPName", shipLocation.EngineHpId);
+            }           
             ViewData["TugId"] = new SelectList(_context.Tug, "TugId", "TugName", shipLocation.TugId);
             return View(shipLocation);
         }
@@ -145,9 +131,7 @@ namespace StarMatrix.Controllers
             }
 
             var shipLocation = await _context.ShipLocation
-                .Include(s => s.BollardPulls)
-                .Include(s => s.ClassTypes)
-                .Include(s => s.EngineHPs)
+               
                 .Include(s => s.Tugs)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (shipLocation == null)
@@ -159,8 +143,8 @@ namespace StarMatrix.Controllers
         }
 
         // POST: ShipLocations/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var shipLocation = await _context.ShipLocation.FindAsync(id);

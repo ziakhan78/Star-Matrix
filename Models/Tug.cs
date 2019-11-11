@@ -14,5 +14,18 @@ namespace StarMatrix.Models
         [Required]
         [Display(Name = "Tug Name")]
         public string TugName { get; set; }
+
+
+        [Required]
+        [Display(Name = "Bollard Pull")]
+        public string BollardPullName { get; set; }
+
+        [Required]
+        [Display(Name = "Engine HP")]
+        public string EngineHPName { get; set; }
+
+        [Required]
+        [Display(Name = "Class")]
+        public string ClassTypeName { get; set; }
     }
 }
