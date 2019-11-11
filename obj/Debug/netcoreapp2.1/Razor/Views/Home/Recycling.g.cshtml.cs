@@ -66,7 +66,7 @@ using StarMatrix.Models;
             WriteLiteral("\r\n<section class=\"slating\">\r\n    <div class=\"centereddh_text\"><h2 class=\"\">Recycling</h2></div>\r\n    ");
             EndContext();
             BeginContext(148, 98, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "81c3dcbf3c174b37ac3cd007a11abb30", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a3f6fa53f299485e8b891cf467f9103a", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

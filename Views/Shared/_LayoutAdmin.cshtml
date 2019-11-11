@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Admin Panel</title>
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+
+    <link href="~/Content/charisma-app.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-cerulean.min.css" rel="stylesheet" />
+
+    @*<link href="~/bower_components/fullcalendar/dist/fullcalendar.css" rel='stylesheet'>
+    <link href='~/bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
+    <link href='~/bower_components/chosen/chosen.min.css' rel='stylesheet'>
+    <link href='~/bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+    <link href='~/bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='~/bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>*@
+
+    <link href='~/Content/jquery.noty.css' rel='stylesheet'>
+    <link href='~/Content/noty_theme_default.css' rel='stylesheet'>
+    <link href='~/Content/elfinder.min.css' rel='stylesheet'>
+    <link href='~/Content/elfinder.theme.css' rel='stylesheet'>
+    <link href='~/Content/jquery.iphone.toggle.css' rel='stylesheet'>
+    <link href='~/Content/uploadify.css' rel='stylesheet'>
+    <link href='~/Content/animate.min.css' rel='stylesheet'>
+    <!-- jQuery -->
+    @*<script src="~/Scripts/notify.min.js"></script>*@
+
+   
+
+</head>
+
+<body>
+    
+    <!-- topbar starts -->
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-inner">
+           
+            <button type="button" class="navbar-toggle pull-left">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <span class="adminpaneltitle">Star Matrix - Admin Panel</span>
+
+            <div class="btn-group pull-right">
+                <button class="btn btn-default dropdown-toggle">
+                    <i class="glyphicon glyphicon-user"></i><span class="">
+                        @*@if (Session["Admin"] != null)
+                        {@Html.Raw(@Session["Admin"].ToString())}*@                       
+                    </span>
+                </button><a href="@Url.Action("Logout", "Admin")" class="btn btn-danger">Logout</a>
+            </div> 
+
+        </div>
+    </div>
+
+    <!-- topbar ends -->
+    <div class="ch-container">
+        <div class="row">
+
+            <!-- left menu starts -->
+            <div class="col-sm-2 col-lg-2">
+                <div class="sidebar-nav">
+                    <div class="nav-canvas">
+                        <div class="nav-sm nav nav-stacked">
+                        </div>
+                        <ul class="nav nav-pills nav-stacked main-menu">
+
+
+                            <li>
+                                <a href="@Url.Action("Index", "Admin")" class="ajax-link">
+                                    <i class="glyphicon glyphicon-user"></i><span> Admin</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Index", "Tugs")" class="ajax-link">
+                                    <i class="glyphicon glyphicon-edit"></i><span>Tug Name Master</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Index", "BollardPulls")" class="ajax-link">
+                                    <i class="glyphicon glyphicon-edit"></i><span>Bollard Pull Master</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Index", "EngineHPs")" class="ajax-link">
+                                    <i class="glyphicon glyphicon-edit"></i><span>Engine HP Master</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Index", "ClassTypes")" class="ajax-link">
+                                    <i class="glyphicon glyphicon-edit"></i><span>Class Master</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Index", "ShipLocations")" class="ajax-link">
+                                    <i class="glyphicon glyphicon-edit"></i><span>Ship Location</span>
+                                </a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="@Url.Action("ChangePassword", "Admin")" class="ajax-link">
+                                    <i class="glyphicon glyphicon-log-out"></i><span> Change Password</span>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--/span-->
+            <!-- left menu ends -->
+            <noscript>
+                <div class="alert alert-block col-md-12">
+                    <h4 class="alert-heading">Warning!</h4>
+                    <p>
+                        You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
+                        enabled to use this site.
+                    </p>
+                </div>
+            </noscript>
+            <div id="content" class="col-lg-10 col-sm-10">
+                <!-- content starts -->
+                @RenderBody()
+                <!--/row-->
+                <!-- content ends -->
+            </div><!--/#content.col-md-0-->
+        </div>
+
+
+        <!--/fluid-row-->
+
+        <hr>
+     
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Star Matrix</p>
+        </footer>
+
+    </div><!--/.fluid-container-->
+    <!-- external javascript -->
+   
+    @RenderSection("scripts", required: false)
+    
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- library for cookie management -->
+    <script src="~/Scripts/jquery.cookie.js"></script>
+    <!-- calender plugin -->
+    <script src='~/bower_components/moment/min/moment.min.js'></script>
+    <script src='~/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+    <!-- data table plugin -->
+    <script src='~/Scripts/jquery.dataTables.min.js'></script>
+    <!-- select or dropdown enhancer -->
+    <script src="~/bower_components/chosen/chosen.jquery.min.js"></script>
+    <!-- plugin for gallery image view -->
+    <script src="~/bower_components/colorbox/jquery.colorbox-min.js"></script>
+    <!-- notification plugin -->
+    @*<script src="~/Scripts/jquery.noty.js"></script>*@
+    <!-- library for making tables responsive -->
+    <script src="~/bower_components/responsive-tables/responsive-tables.js"></script>
+    <!-- tour plugin -->
+    <script src="~/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+    <!-- star rating plugin -->
+    @*<script src="~/Scripts/jquery.raty.min.js"></script>
+    <!-- for iOS style toggle switch -->
+    <script src="~/Scripts/jquery.iphone.toggle.js"></script>
+    <!-- autogrowing textarea plugin -->
+    <script src="~/Scripts/jquery.autogrow-textarea.js"></script>
+    <!-- multiple file upload plugin -->
+    <script src="~/Scripts/jquery.uploadify-3.1.min.js"></script>
+    <!-- history.js for cross-browser state change on ajax -->
+    <script src="~/Scripts/jquery.history.js"></script>*@
+    <!-- application script for Charisma demo -->
+    <script src="~/Scripts/charisma.js"></script>
+
+</body>
+</html>

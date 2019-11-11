@@ -1,0 +1,76 @@
+﻿@model StarMatrix.Models.ShipLocation
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-star-empty"></i> Add Ship Location</h2>
+            </div>
+
+            <div class="box-content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="TugId" class="control-label"></label>
+                                <select asp-for="TugId" class="form-control" asp-items="ViewBag.TugId"></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="BollardPullId" class="control-label"></label>
+                                <select asp-for="BollardPullId" class="form-control" asp-items="ViewBag.BollardPullId"></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="EngineHpId" class="control-label"></label>
+                                <select asp-for="EngineHpId" class="form-control" asp-items="ViewBag.EngineHpId"></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ClassTypeId" class="control-label"></label>
+                                <select asp-for="ClassTypeId" class="form-control" asp-items="ViewBag.ClassTypeId"></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PresentLocation" class="control-label"></label>
+                                <input asp-for="PresentLocation" class="form-control" />
+                                <span asp-validation-for="PresentLocation" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Availability" class="control-label"></label>
+                                <input asp-for="Availability" class="form-control" />
+                                <span asp-validation-for="Availability" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="AvailableLocation" class="control-label"></label>
+                                <input asp-for="AvailableLocation" class="form-control" />
+                                <span asp-validation-for="AvailableLocation" class="text-danger"></span>
+                            </div>
+                            @*<div class="form-group">
+                                    <label asp-for="Ipaddress" class="control-label"></label>
+                                    <input asp-for="Ipaddress" class="form-control" />
+                                    <span asp-validation-for="Ipaddress" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="DateAdded" class="control-label"></label>
+                                    <input asp-for="DateAdded" class="form-control" />
+                                    <span asp-validation-for="DateAdded" class="text-danger"></span>
+                                </div>*@
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-success" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div>
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

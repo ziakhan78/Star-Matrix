@@ -1,0 +1,48 @@
+﻿@model IEnumerable<StarMatrix.Models.Tug>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2>Tug</h2>
+                <div style="float:right;">   <a class="btn btn-success btn-sm" href="@Url.Action("Create", "Tugs")"><i class="glyphicon glyphicon-plus-sign"></i> Add New</a></div>
+            </div>
+            <div class="box-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sr.</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TugName)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int rowno = 0;}
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(rowno += 1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TugName)
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" href="@Url.Action("Edit", "Tugs", new { id = item.TugId})"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+                                    <a class="btn btn-danger btn-sm" onclick="return confirm('Are sure you want to delete this item?');" href="@Url.Action("DeleteConfirmed", "Tugs", new { id = item.TugId })"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

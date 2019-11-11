@@ -9,16 +9,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using StarMatrix.Models;
 
 namespace StarMatrix.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly StarMatrixContext _context;       
         private IHostingEnvironment _env;
-        public HomeController(IHostingEnvironment env)
+        public HomeController(IHostingEnvironment env, StarMatrixContext context)
         {
             _env = env;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -39,9 +42,10 @@ namespace StarMatrix.Controllers
         }
 
         [Route("Towage")]
-        public IActionResult Towage()
+        public async Task<IActionResult> Towage()
         {
-            return View();
+            var starMatrixContext = _context.ShipLocation.Include(s => s.BollardPulls).Include(s => s.ClassTypes).Include(s => s.EngineHPs).Include(s => s.Tugs);
+            return View(await starMatrixContext.ToListAsync());
         }
 
         [Route("Download")]
@@ -61,6 +65,12 @@ namespace StarMatrix.Controllers
         public IActionResult Contact()
         {
 
+            return View();
+        }
+
+        [Route("Sitemap")]
+        public IActionResult Sitemap()
+        {
             return View();
         }
 
